@@ -1,6 +1,6 @@
 "use client"; // Required for Framer Motion and other client-side hooks
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; // 1. Import the 'Variants' type
 import React from 'react';
 import Image from 'next/image';
 
@@ -25,22 +25,21 @@ const testimonialsData = [
   },
 ];
 
-// Variants for the container to orchestrate the stagger effect
-const containerVariants = {
+// 2. Explicitly type the constant as Variants
+const containerVariants: Variants = {
   offscreen: {
     opacity: 0
   },
   onscreen: {
     opacity: 1,
     transition: {
-      // This is the correct way to stagger the animation of children
       staggerChildren: 0.3,
     },
   },
 };
 
-// Variants for each individual card
-const cardVariants = {
+// 3. Explicitly type this constant as Variants as well
+const cardVariants: Variants = {
   offscreen: {
     y: 50,
     opacity: 0,
@@ -70,7 +69,7 @@ const Testimonials = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants} // Use the container variants here
+        variants={containerVariants}
       >
         {testimonialsData.map((testimonial, index) => (
           <motion.div key={index} className="rounded-lg border border-gray-800 bg-gray-900 p-8" variants={cardVariants}>
