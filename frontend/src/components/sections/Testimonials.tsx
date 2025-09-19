@@ -1,8 +1,8 @@
-"use client";
+"use client"; // Required for Framer Motion and other client-side hooks
 
+import { motion } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 const testimonialsData = [
   {
@@ -25,51 +25,42 @@ const testimonialsData = [
   },
 ];
 
+const cardVariants = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
 const Testimonials = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
     <section className="container mx-auto py-20">
       <div className="mb-12 text-center">
-        <h2 className="text-4xl font-extrabold">Loved by Industry Leaders</h2>
+        <h2 className="text-4xl font-extrabold">Trusted by Innovative Founders</h2>
         <p className="mx-auto mt-4 max-w-2xl text-gray-400">
-          Our platform helps teams of all sizes achieve their goals. Here's what some of them have to say.
+          Our platform helps teams of all sizes achieve their goals. Here&apos;s what some of them have to say.
         </p>
       </div>
       <motion.div
         className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial="offscreen"
+        whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
+        staggerChildren={0.3}
       >
         {testimonialsData.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            className="rounded-lg border border-gray-800 bg-gray-900 p-8"
-            variants={cardVariants}
-          >
+          <motion.div key={index} className="rounded-lg border border-gray-800 bg-gray-900 p-8" variants={cardVariants}>
             <blockquote className="mb-6 text-gray-300">
-              "{testimonial.quote}"
+              &quot;{testimonial.quote}&quot;
             </blockquote>
             <div className="flex items-center">
               <Image
