@@ -1,6 +1,6 @@
 "use client"; // Required for Framer Motion and other client-side hooks
 
-import { motion, Variants } from 'framer-motion'; // 1. Import the 'Variants' type
+import { motion, Variants } from 'framer-motion';
 import React from 'react';
 import Image from 'next/image';
 
@@ -25,7 +25,7 @@ const testimonialsData = [
   },
 ];
 
-// 2. Explicitly type the constant as Variants
+// The fix is here: 'staggerChildren' now lives inside the 'transition' object
 const containerVariants: Variants = {
   offscreen: {
     opacity: 0
@@ -38,7 +38,6 @@ const containerVariants: Variants = {
   },
 };
 
-// 3. Explicitly type this constant as Variants as well
 const cardVariants: Variants = {
   offscreen: {
     y: 50,
@@ -69,7 +68,7 @@ const Testimonials = () => {
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
+        variants={containerVariants} // We apply the container variants here
       >
         {testimonialsData.map((testimonial, index) => (
           <motion.div key={index} className="rounded-lg border border-gray-800 bg-gray-900 p-8" variants={cardVariants}>
@@ -97,3 +96,17 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+```
+
+#### **2. Push the Final Fix to GitHub (The Most Important Step)**
+
+After you have saved the correct code above, you **must push this change to GitHub**. This is the step that will tell Vercel to try building your project again with the fixed code.
+
+1.  **Save** the updated `Testimonials.tsx` file in VS Code.
+2.  In your VS Code terminal (in the root directory of your project), run these commands:
+
+    ```bash
+    git add .
+    git commit -m "fix(frontend): Final correction for Framer Motion deployment error"
+    git push
+
