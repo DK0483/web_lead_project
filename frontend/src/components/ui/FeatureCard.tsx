@@ -1,10 +1,9 @@
 import React from 'react';
 
-// Define the props the component will accept
 interface FeatureCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode; // Allows passing an SVG icon
+  icon: React.ReactNode;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon }) => {

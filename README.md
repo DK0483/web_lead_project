@@ -51,7 +51,7 @@ This repository contains the complete source code for the Vincenzo AI project, a
 1.  **Clone the repository:**
     First, clone this repository to your local machine using Git.
     ```bash
-    git clone [https://github.com/your-username/web-lead-project.git](https://github.com/your-username/web_lead_project.git)
+    git clone [https://github.com/your-username/web_lead_project.git](https://github.com/your-username/web_lead_project.git)
     cd web-lead-project
     ```
 

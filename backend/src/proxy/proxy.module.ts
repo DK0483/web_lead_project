@@ -5,6 +5,6 @@ import { HttpModule } from '@nestjs/axios';
 @Module({
   imports: [HttpModule],
   providers: [ProxyService],
-  exports: [ProxyService], // Export the service so other modules can use it
+  exports: [ProxyService],
 })
 export class ProxyModule {}

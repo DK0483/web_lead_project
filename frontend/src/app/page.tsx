@@ -2,8 +2,8 @@ import Navbar from "../components/Navbar";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
 import Testimonials from "@/components/sections/Testimonials";
-import CTA from "@/components/sections/CTA";         // 1. Import CTA
-import Footer from "@/components/sections/Footer";   // 2. Import Footer
+import CTA from "@/components/sections/CTA";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -12,8 +12,8 @@ export default function Home() {
       <Hero />
       <Features />
       <Testimonials />
-      <CTA />      {/* 3. Add CTA here */}
-      <Footer />   {/* 4. Add Footer here */}
+      <CTA />
+      <Footer />
     </main>
   );
 }

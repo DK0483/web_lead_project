@@ -6,7 +6,6 @@ import {
 } from '@nestjs/terminus';
 import { SkipThrottle } from 'nestjs-throttler';
 
-// 1. Apply the decorator to skip rate limiting for this entire controller
 @SkipThrottle()
 @Controller('health')
 export class HealthController {

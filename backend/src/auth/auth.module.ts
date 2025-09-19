@@ -10,12 +10,12 @@ import { AuthController } from './auth.controller';
   imports: [
     PassportModule,
     JwtModule.register({
-      secret: 'YOUR_SECRET_KEY', // IMPORTANT: In a real app, use an environment variable for this
-      signOptions: { expiresIn: '60m' }, // Token will be valid for 60 minutes
+      secret: 'YOUR_SECRET_KEY',
+      signOptions: { expiresIn: '60m' },
     }),
   ],
   providers: [AuthService, JwtStrategy, LocalStrategy],
-  controllers: [AuthController], // This line registers your new controller
+  controllers: [AuthController],
   exports: [AuthService],
 })
 export class AuthModule {}

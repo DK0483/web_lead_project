@@ -8,13 +8,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: 'YOUR_SECRET_KEY', // This MUST match the secret in your auth.module.ts
+      secretOrKey: 'YOUR_SECRET_KEY',
     });
   }
 
   async validate(payload: any) {
-    // The JWT is valid, so we can trust the payload.
-    // The return value is attached to the request object as req.user.
     return { userId: payload.sub, username: payload.username };
   }
 }

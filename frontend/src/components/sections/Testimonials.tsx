@@ -1,8 +1,8 @@
-"use client"; // Required for animations that trigger on scroll
+"use client";
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion'; // 1. Import Framer Motion
+import { motion } from 'framer-motion';
 
 const testimonialsData = [
   {
@@ -26,13 +26,12 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
-  // 2. Define animation variants for the container and cards
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Each card will animate 0.2s after the previous one
+        staggerChildren: 0.2,
       },
     },
   };
@@ -56,16 +55,14 @@ const Testimonials = () => {
           Our platform helps teams of all sizes achieve their goals. Here's what some of them have to say.
         </p>
       </div>
-      {/* 3. Apply animation to the grid container */}
       <motion.div
         className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         variants={containerVariants}
         initial="hidden"
-        whileInView="visible" // Triggers the animation when the element enters the viewport
+        whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
         {testimonialsData.map((testimonial, index) => (
-          // 4. Apply animation to each testimonial card
           <motion.div
             key={index}
             className="rounded-lg border border-gray-800 bg-gray-900 p-8"
