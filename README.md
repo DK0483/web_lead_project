@@ -4,8 +4,7 @@ This repository contains the complete source code for the Vincenzo AI project, a
 
 ## Live Demo Links
 
-- **Frontend Deployment:** `[Link to your Vercel deployment]`
-- **Backend Deployment:** `[Link to your Render deployment]`
+- **Frontend Deployment:** `[https://web-lead-project-6a5q.vercel.app/]`
 
 ## Features
 
