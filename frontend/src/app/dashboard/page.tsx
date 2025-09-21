@@ -2,8 +2,14 @@
 
 import React, { useState } from 'react';
 
+// 1. Define a specific type for the user data we expect from the backend.
+interface UserData {
+  message: string;
+}
+
 const DashboardPage = () => {
-  const [userData, setUserData] = useState<any | null>(null);
+  // 2. Use the new UserData type instead of 'any' for the state.
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [error, setError] = useState<string>('');
   const [token, setToken] = useState<string | null>(null);
   const [isLoginLoading, setIsLoginLoading] = useState<boolean>(false);
@@ -23,7 +29,6 @@ const DashboardPage = () => {
       });
 
       if (!response.ok) {
-        // Provide a more specific error if the login itself fails (e.g., wrong password in a real app)
         throw new Error(`Authentication failed with status: ${response.status}`);
       }
 
@@ -31,12 +36,15 @@ const DashboardPage = () => {
       if (data.access_token) {
         setToken(data.access_token);
       } else {
-        // This case handles unexpected responses from the server
         throw new Error('Login successful, but no access token was provided.');
       }
-    } catch (e: any) {
+    } catch (e: unknown) { // 3. Use 'unknown' instead of 'any' for safer error handling.
       console.error(e);
-      setError(`Failed to log in. Please ensure the backend server is running and accessible. Details: ${e.message}`);
+      if (e instanceof Error) {
+        setError(`Failed to log in. Please ensure the backend server is running and accessible. Details: ${e.message}`);
+      } else {
+        setError('An unknown error occurred during login.');
+      }
     } finally {
       setIsLoginLoading(false);
     }
@@ -59,26 +67,29 @@ const DashboardPage = () => {
       });
 
       if (!response.ok) {
-        // This will catch errors like 401 Unauthorized or 503 Service Unavailable
         throw new Error(`Request failed: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
       setUserData(data);
-    } catch (e: any) {
+    } catch (e: unknown) { // 4. Use 'unknown' here as well.
       console.error(e);
-      setError(`Failed to fetch protected data. This could be due to an invalid token or the downstream service being unavailable. Details: ${e.message}`);
+      if (e instanceof Error) {
+        setError(`Failed to fetch protected data. This could be due to an invalid token or the downstream service being unavailable. Details: ${e.message}`);
+      } else {
+        setError('An unknown error occurred while fetching data.');
+      }
     } finally {
       setIsDataLoading(false);
     }
   };
 
   return (
-    <div className="container mx-auto p-8 text-center">
-      <h1 className="text-4xl font-bold mb-4">Client-Backend Interaction Demo</h1>
+    <div className="container mx-auto p-4 sm:p-8 text-center">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-4">Client-Backend Interaction Demo</h1>
       <p className="text-gray-400 mb-8">This page demonstrates how the frontend (this website) communicates with the secure backend API you built.</p>
       
-      <div className="flex justify-center gap-4 mb-8">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
         <button 
           onClick={handleLogin} 
           className="bg-blue-600 text-white rounded-full px-5 py-2 hover:bg-blue-700 disabled:bg-gray-500"
@@ -95,8 +106,8 @@ const DashboardPage = () => {
         </button>
       </div>
 
-      <div className="p-8 border border-gray-700 rounded-lg bg-gray-900 min-h-[250px] text-left">
-        <h2 className="text-2xl font-semibold mb-4 text-center">API Call Results</h2>
+      <div className="p-4 sm:p-8 border border-gray-700 rounded-lg bg-gray-900 min-h-[250px] text-left">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-center">API Call Results</h2>
         {token && (
             <div>
                 <p className="text-green-400 font-semibold">Token Received Successfully:</p>
