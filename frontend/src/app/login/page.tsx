@@ -31,10 +31,13 @@ const LoginPage = () => {
         throw new Error(data.message || 'Invalid credentials');
       }
 
+      // In a real app, you would store this token securely
       console.log('Login successful, token:', data.access_token);
+      
+      // Redirect to the homepage upon successful login
       router.push('/');
 
-    } catch (error: unknown) { // Changed 'any' to 'unknown' for type safety
+    } catch (error: unknown) { // Using 'unknown' for type safety
       if (error instanceof Error) {
         setError(error.message);
       } else {
@@ -116,4 +119,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-

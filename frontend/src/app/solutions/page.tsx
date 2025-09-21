@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 
+// The unused 'Link' import has been removed.
+
 // A reusable icon component for each solution
 const SolutionIcon = () => (
     <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -61,4 +63,3 @@ const SolutionsPage = () => {
 };
 
 export default SolutionsPage;
-
