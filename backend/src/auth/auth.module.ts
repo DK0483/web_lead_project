@@ -5,9 +5,11 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
 import { LocalStrategy } from './local.strategy';
 import { AuthController } from './auth.controller';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
+    UserModule,
     PassportModule,
     JwtModule.register({
       secret: 'YOUR_SECRET_KEY',
