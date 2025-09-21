@@ -40,7 +40,7 @@ const SignUpPage = () => {
         router.push('/login');
       }, 2000);
 
-    } catch (error: unknown) {
+    } catch (error: unknown) { // FIX: Changed 'any' to 'unknown' for type safety
       if (error instanceof Error) {
         setMessage({ type: 'error', text: error.message });
       } else {

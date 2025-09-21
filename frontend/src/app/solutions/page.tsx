@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
 
-// The unused 'Link' import has been removed.
+// The unused 'Link' import that caused the Vercel error has been removed.
 
 // A reusable icon component for each solution
 const SolutionIcon = () => (

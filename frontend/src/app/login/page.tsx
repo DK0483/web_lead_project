@@ -31,13 +31,10 @@ const LoginPage = () => {
         throw new Error(data.message || 'Invalid credentials');
       }
 
-      // In a real app, you would store this token securely
       console.log('Login successful, token:', data.access_token);
-      
-      // Redirect to the homepage upon successful login
       router.push('/');
 
-    } catch (error: unknown) { // Using 'unknown' for type safety
+    } catch (error: unknown) { // FIX: Changed 'any' to 'unknown'
       if (error instanceof Error) {
         setError(error.message);
       } else {
@@ -57,59 +54,22 @@ const LoginPage = () => {
             <h1 className="text-3xl font-bold">Welcome Back</h1>
             <p className="mt-2 text-gray-400">Sign in to your Vincenzo AI account.</p>
           </div>
-
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email address</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="you@example.com"
-              />
+              <input id="email" name="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="you@example.com" />
             </div>
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="••••••••"
-              />
+              <input id="password" name="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="••••••••" />
             </div>
             <div>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:bg-gray-500"
-              >
-                {isLoading ? 'Signing In...' : 'Sign In'}
-              </button>
+              <button type="submit" disabled={isLoading} className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-gray-500">{isLoading ? 'Signing In...' : 'Sign In'}</button>
             </div>
           </form>
-
-          {error && (
-            <div className="p-4 rounded-md text-center bg-red-900/50 text-red-300">
-              {error}
-            </div>
-          )}
-
+          {error && (<div className="p-4 rounded-md text-center bg-red-900/50 text-red-300">{error}</div>)}
           <div className="text-center">
-            <p className="text-sm text-gray-400">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" className="font-medium text-blue-400 hover:text-blue-300">
-                Sign up
-              </Link>
-            </p>
+            <p className="text-sm text-gray-400">Don&apos;t have an account?{' '}<Link href="/signup" className="font-medium text-blue-400 hover:text-blue-300">Sign up</Link></p>
           </div>
         </div>
       </main>
