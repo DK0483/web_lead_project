@@ -1,102 +1,101 @@
 # Vincenzo AI - Full-Stack SaaS Platform
 
-This repository contains the complete source code for the Vincenzo AI project, a conceptual Software-as-a-Service (SaaS) platform designed to showcase a professional full-stack development workflow. It features a modern, animated frontend landing page and a robust, resilient backend API Gateway. This project was built to fulfill the requirements of the Web Lead Task, demonstrating a wide range of skills from UI/UX fidelity to complex backend architecture.
+This repository contains the code for the Vincenzo AI project, a full-stack application featuring a professional, light-themed frontend and a robust backend API Gateway. The project was built to replicate a modern SaaS landing page design, demonstrating a wide range of frontend and backend development skills.
 
 ## Live Demo Links
 
-- **Frontend Deployment:** `[https://web-lead-project-6a5q.vercel.app/]`
+- **Frontend Deployment:** `https://web-lead-project-6a5q.vercel.app/`
 
 ## Features
 
-### Frontend (Built with Next.js & Tailwind CSS)
+###  Frontend (Built with Next.js & Tailwind CSS)
 
-- **Modern & Responsive Design:** A pixel-perfect replication of the "AI SaaS Landing Page" design from Dribbble. The interface is built with a mobile-first approach, ensuring a seamless and intuitive experience across all devices, from phones and tablets to desktops.
-- **Animated Hero Section:** To immediately capture user attention, the hero section features a captivating and classy 3D particle animation built with Three.js. This interactive visual responds to the user's mouse movements, creating a dynamic and engaging first impression.
-- **Component-Based Architecture:** The frontend is structured using a clean, component-based architecture. Each distinct section of the page (Navbar, Hero, Features, etc.) is its own reusable React component, which makes the codebase highly maintainable, scalable, and easy to navigate.
-- **Subtle Page Animations:** Beyond the hero, the page is enhanced with subtle animations powered by Framer Motion. As the user scrolls, elements like the testimonial cards gracefully fade and slide into view, providing a premium feel and making the page feel alive and responsive.
-- **Styled with Tailwind CSS:** The entire user interface is styled using the utility-first Tailwind CSS framework. This allows for rapid development of custom designs directly within the markup, ensuring visual consistency and eliminating the need for custom CSS files.
+- **Modern & Responsive Design:** A polished and professional UI inspired by the "Optimize AI" Dribbble design. It features a clean, light green theme and is fully responsive for a seamless experience on all devices.
+- **Multi-Page Architecture:** The application is structured as a multi-page site with dedicated, functional routes for key user flows:
+  - Homepage (`/`)
+  - Pricing (`/pricing`)
+  - Solutions (`/solutions`)
+  - About Us (`/about`)
+  - Login (`/login`) & Sign Up (`/signup`)
+- **Component-Based Structure:** The interface is built with a clean, component-based architecture in React, making the codebase maintainable and scalable.
+- **Functional Forms:** The Login and Sign Up pages are fully wired to the backend API, including form state management, loading indicators, and user-friendly error handling.
 
 ### Backend (API Gateway built with NestJS)
 
-- ✅ **Centralized JWT Authentication:** The gateway implements a secure authentication system using JSON Web Tokens. This centralized approach offloads the security burden from individual microservices, creating a single, secure entry point for the entire application. Users authenticate once to receive a token, which is then used to access all protected routes.
-- ✅ **Per-user Rate Limiting:** To protect the API from abuse and ensure fair usage, a custom rate-limiting guard is in place. It intelligently tracks requests on a per-user basis by identifying users from their JWT. For public, unauthenticated routes, it gracefully falls back to IP-based limiting, providing comprehensive protection.
-- ✅ **Service Health Checks & Graceful Failover:** A key feature for a resilient microservice architecture, the gateway actively monitors the health of its downstream services via a `/health` endpoint. A smart proxy service first checks a service's health before forwarding a request. If a service is unhealthy, the gateway immediately returns a `503 Service Unavailable` error, preventing long timeouts and cascading failures.
+- ✅ **Centralized JWT Authentication:** A secure authentication system where users can register and log in to receive a JSON Web Token (JWT). Protected routes are validated using this token.
+- ✅ **Per-user Rate Limiting:** A custom guard protects the API from abuse by limiting the number of requests a single authenticated user can make. It gracefully falls back to IP-based limiting for public requests.
+- ✅ **Service Health Checks & Graceful Failover:** The gateway includes a `/health` endpoint and a smart proxy service to monitor downstream microservices, ensuring the system is resilient and fails gracefully if a service is unavailable.
 
 ## Tech Stack
 
 - **Frontend:**
-  - Framework: **Next.js 14+** (with App Router) - Chosen for its powerful features like Server-Side Rendering (SSR) and optimization capabilities, ensuring a fast, SEO-friendly user experience.
-  - Language: **TypeScript** - Used throughout the project for strict type safety, leading to more robust and error-free code.
-  - Styling: **Tailwind CSS** - Selected for its utility-first approach, which enables the rapid development of custom, responsive designs directly within the component markup.
-  - Animation: **Framer Motion** & **Three.js** - A combination of libraries used to create both subtle UI animations and complex, interactive 3D graphics.
+  - Framework: **Next.js 14+** (with App Router)
+  - Language: **TypeScript**
+  - Styling: **Tailwind CSS**
 - **Backend:**
-  - Framework: **NestJS** - Utilized for its modular and scalable architecture, which provides a robust, enterprise-grade foundation for building applications with TypeScript.
-  - Language: **TypeScript** - Ensures type safety and improves developer productivity on the backend.
-  - Authentication: **Passport.js** (with `passport-jwt` and `passport-local`) - The industry-standard for authentication in the Node.js ecosystem, providing flexible and modular strategies.
-  - Rate Limiting: **`nestjs-throttler`** - A powerful library for protecting API endpoints against brute-force attacks and excessive requests.
-  - Health Checks: **`@nestjs/terminus`** - An official NestJS module for implementing production-ready health checks, essential for monitoring and maintaining a resilient system.
+  - Framework: **NestJS**
+  - Language: **TypeScript**
+  - Authentication: **Passport.js** (with `passport-jwt` and `passport-local`)
+  - Security: **`bcrypt`** for password hashing
+  - Rate Limiting: **`nestjs-throttler`**
+  - Health Checks: **`@nestjs/terminus`**
 - **Package Manager:** **pnpm**
 
 ## Getting Started
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (LTS version is recommended)
+- [Node.js](https://nodejs.org/) (LTS version)
 - [pnpm](https://pnpm.io/installation)
 - [Git](https://git-scm.com/)
 
 ### Installation & Running Locally
 
 1.  **Clone the repository:**
-    First, clone this repository to your local machine using Git.
     ```bash
     git clone [https://github.com/your-username/web_lead_project.git](https://github.com/your-username/web_lead_project.git)
     cd web-lead-project
     ```
 
 2.  **Install all dependencies:**
-    From the root of the project, run the following command. `pnpm` will intelligently install the dependencies for both the `frontend` and `backend` workspaces.
+    This command will install dependencies for both the `frontend` and `backend` workspaces.
     ```bash
     pnpm install
     ```
 
 3.  **Run the Backend Server:**
-    Open a new terminal and navigate to the `backend` directory to start the API gateway.
+    Open a new terminal for the backend.
     ```bash
     cd backend
     pnpm start:dev
     ```
-    The backend API will be running and listening on `http://localhost:3001`.
+    The backend API will be running on `http://localhost:3001`.
 
 4.  **Run the Frontend Server:**
-    Open a second, separate terminal and navigate to the `frontend` directory to start the web application.
+    Open a separate terminal for the frontend.
     ```bash
     cd frontend
     pnpm dev
     ```
-    The frontend website will be accessible at `http://localhost:3000`.
+    The frontend website will be running on `http://localhost:3000`.
 
 ## Backend API Endpoints
 
-Use an API client like Thunder Client or Postman to interact with the backend API.
+- **`POST /auth/register`**
+  - **Description:** Creates a new user account.
+  - **Body (JSON):** `{ "username": "newuser@example.com", "password": "newpassword123" }`
 
 - **`POST /auth/login`**
-  - **Description:** Authenticates a user with predefined credentials and returns a JSON Web Token if successful.
-  - **Body (JSON):**
-    ```json
-    {
-      "username": "testuser",
-      "password": "password"
-    }
-    ```
+  - **Description:** Authenticates a user and receives a JWT.
+  - **Body (JSON):** `{ "username": "testuser", "password": "password" }`
 
 - **`GET /auth/profile`**
-  - **Description:** A protected route that validates the provided JWT and returns the decoded user's data.
-  - **Authentication:** Requires a `Bearer Token`. The token should be included in the `Authorization` header (e.g., `Authorization: Bearer <your_jwt>`).
+  - **Description:** A protected route that returns the current user's data.
+  - **Authentication:** Requires a `Bearer Token`.
 
 - **`GET /gateway/user/data`**
-  - **Description:** A protected gateway route designed to demonstrate the graceful failover mechanism. It will proxy a request to an internal service only if that service is healthy.
+  - **Description:** A protected gateway route that demonstrates graceful failover.
   - **Authentication:** Requires a `Bearer Token`.
 
 - **`GET /health`**
-  - **Description:** A public endpoint used for observability. It returns the health status of all monitored downstream microservices.
+  - **Description:** A public endpoint to check the health of downstream services.
