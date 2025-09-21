@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
-// The unused 'Link' import has been removed.
 
 const FeatureIcon = ({ path }: { path: string }) => (
     <div className="flex items-center justify-center w-12 h-12 bg-gray-800 rounded-lg mb-4">
