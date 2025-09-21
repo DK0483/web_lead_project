@@ -3,7 +3,7 @@
 This repository contains the code for the Vincenzo AI project, a full-stack application featuring a professional, light-themed frontend and a robust backend API Gateway. The project was built to replicate a modern SaaS landing page design, demonstrating a wide range of frontend and backend development skills.
 
 ## 🌐 Live Website
-👉 [Visit ChatBot here](https://web-lead-project-6a5q.vercel.app/)
+👉 [Visit here](https://web-lead-project-6a5q.vercel.app/)
 
 ## Features
 
