@@ -40,8 +40,12 @@ const SignUpPage = () => {
         router.push('/login');
       }, 2000);
 
-    } catch (error: any) {
-      setMessage({ type: 'error', text: error.message });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setMessage({ type: 'error', text: error.message });
+      } else {
+        setMessage({ type: 'error', text: 'An unexpected error occurred.' });
+      }
     } finally {
       setIsLoading(false);
     }

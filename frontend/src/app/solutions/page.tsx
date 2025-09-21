@@ -1,15 +1,15 @@
 import React from 'react';
 import Navbar from '@/components/sections/Navbar';
 import Footer from '@/components/sections/Footer';
-import Link from 'next/link';
 
-// A simple icon to represent each solution category
+// A reusable icon component for each solution
 const SolutionIcon = () => (
     <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3m6-6h3m-3 6h3M6 12H3m18 0h-3" />
     </svg>
 );
 
+// Data for the different solutions offered
 const solutionsData = [
     {
         title: "For E-commerce",
@@ -43,7 +43,7 @@ const SolutionsPage = () => {
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
             {solutionsData.map((solution, index) => (
-                <div key={index} className="p-8 bg-gray-900 rounded-lg border border-gray-800 flex items-start gap-6">
+                <div key={index} className="p-8 bg-gray-900 rounded-lg border border-gray-800 flex items-start gap-6 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition-all">
                     <div>
                         <SolutionIcon />
                     </div>
@@ -61,3 +61,4 @@ const SolutionsPage = () => {
 };
 
 export default SolutionsPage;
+
