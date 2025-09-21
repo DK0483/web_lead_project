@@ -42,7 +42,7 @@ const containerVariants: Variants = {
   onscreen: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Made stagger slightly faster
+      staggerChildren: 0.2,
     },
   },
 };
@@ -73,7 +73,7 @@ const Testimonials = () => {
         </p>
       </div>
       <motion.div
-        className="grid gap-8 md:grid-cols-2 lg:grid-cols-4" // Changed to 4 columns on large screens
+        className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
         initial="offscreen"
         whileInView="onscreen"
         viewport={{ once: true, amount: 0.2 }}
@@ -107,6 +107,7 @@ const Testimonials = () => {
                     width={100}
                     height={40}
                     className="opacity-60"
+                    unoptimized // Add this property
                   />
               </div>
             </div>
