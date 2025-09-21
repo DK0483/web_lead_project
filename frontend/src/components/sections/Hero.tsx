@@ -21,14 +21,7 @@ const Hero = () => {
           Stop wasting time on repetitive tasks. Our platform leverages cutting-edge AI to automate your business processes, so you can focus on what truly matters.
         </p>
 
-        <div className="mt-10 flex items-center justify-center gap-x-6">
-          <button className="transform rounded-full bg-blue-600 px-8 py-3 font-semibold text-white transition-transform hover:scale-105">
-            Get Started for Free
-          </button>
-          <button className="transform rounded-full border border-gray-700 px-8 py-3 font-semibold transition-transform hover:scale-105 hover:bg-gray-800">
-            Book a Demo
-          </button>
-        </div>
+        {/* The button container has been removed from here. */}
       </div>
       
     </section>
@@ -36,3 +29,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
