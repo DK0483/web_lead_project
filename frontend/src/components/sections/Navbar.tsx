@@ -35,10 +35,11 @@ const featuresData = [
     { title: "Seamless Integrations", description: "Connect Vincenzo AI to the tools you already use, from CRMs to databases.", iconPath: "M17 14v6m-3-3h6M3 10v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2H5a2 2 0 00-2 2z" },
     { title: "Predictive Insights", description: "Stay ahead of the curve with AI that anticipates future trends and customer needs.", iconPath: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0" },
 ];
+// Updated team member names as requested
 const teamMembers = [
-    { name: "Rohan Mehta", role: "Founder & CEO", avatar: "https://placehold.co/200x200/1D4ED8/FFFFFF/png?text=RM", bio: "Visionary leader with a passion for leveraging AI to solve complex business challenges." },
-    { name: "Priya Sharma", role: "Chief Technology Officer", avatar: "https://placehold.co/200x200/7E22CE/FFFFFF/png?text=PS", bio: "Expert in machine learning and scalable systems, driving our platform's innovation." },
-    { name: "Aarav Singh", role: "Head of Product", avatar: "https://placehold.co/200x200/16A34A/FFFFFF/png?text=AS", bio: "Dedicated to creating intuitive user experiences that deliver real value." },
+    { name: "Dhyey Kabra", role: "Founder & CEO", avatar: "https://placehold.co/200x200/1D4ED8/FFFFFF/png?text=DK", bio: "Visionary leader with a passion for leveraging AI to solve complex business challenges." },
+    { name: "Raghav Khare", role: "Chief Technology Officer", avatar: "https://placehold.co/200x200/7E22CE/FFFFFF/png?text=RK", bio: "Expert in machine learning and scalable systems, driving our platform's innovation." },
+    { name: "Mayank Joshi", role: "Head of Product", avatar: "https://placehold.co/200x200/16A34A/FFFFFF/png?text=MJ", bio: "Dedicated to creating intuitive user experiences that deliver real value." },
 ];
 
 // --- Reusable Components & Variants ---

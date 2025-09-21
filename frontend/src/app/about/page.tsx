@@ -6,19 +6,19 @@ import Image from 'next/image';
 // Placeholder data for team members
 const teamMembers = [
     {
-        name: "Dhyey Kabra",
+        name: "Rohan Mehta",
         role: "Founder & CEO",
         avatar: "https://placehold.co/200x200/1D4ED8/FFFFFF/png?text=RM",
         bio: "Visionary leader with a passion for leveraging AI to solve complex business challenges."
     },
     {
-        name: "Raghav Khare",
+        name: "Priya Sharma",
         role: "Chief Technology Officer",
         avatar: "https://placehold.co/200x200/7E22CE/FFFFFF/png?text=PS",
         bio: "Expert in machine learning and scalable systems, driving the innovation behind our platform."
     },
     {
-        name: "Mayank Joshi",
+        name: "Aarav Singh",
         role: "Head of Product",
         avatar: "https://placehold.co/200x200/16A34A/FFFFFF/png?text=AS",
         bio: "Dedicated to creating intuitive and powerful user experiences that deliver real value."
